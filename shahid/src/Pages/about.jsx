@@ -1,19 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import {ListOfUsers} from "../services/list-of-users";
 import {Loader} from "../components/Loader";
-import styled from "styled-components";
 import Cards from "../components/User/cards";
+import {StyledCenter, StyledDivForLoader} from "../components/styles";
 
-const StyledDivForLoader = styled.div`
-	height:600px;
-	display: flex;
-	justify-content: center;
-`;
-
-const StyledCenter = styled.div`
-	display: flex;
-	align-items: center;
-`;
 
 export const About = () => {
 	const [shahidUsers, setShahidUsers] = useState();
@@ -21,8 +11,6 @@ export const About = () => {
 	useEffect(() => {
 		ListOfUsers(setShahidUsers)
 	}, [])
-
-	console.log(shahidUsers);
 
 	if (!shahidUsers) {
 		return (
@@ -35,6 +23,9 @@ export const About = () => {
 	} else
 		return (
 			<div>
+				<div style={{width: "100%"}}>
+					<h2 style={{textAlign: "center"}}>Our Developer ^_^</h2>
+				</div>
 				<Cards shahidUsers={shahidUsers} />
 			</div>
 		);

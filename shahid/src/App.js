@@ -4,10 +4,9 @@ import Navbar from './components/Navbar';
 import ThemeProvider from './components/ThemeProvider';
 import Home from "./Pages/home";
 import {About} from "./Pages/about";
-import {Contact} from "./Pages/contact";
 import styled from "styled-components";
-import {ListOfUsers} from "./services/list-of-users";
 import {Blog} from "./Pages/blog";
+import Contact from "./Pages/contact";
 
 const CustomDiv = styled.div`
 	background-color: ${(props) => props.theme.navbarBackground};
