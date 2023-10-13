@@ -12,7 +12,6 @@ const ThemeToggle = ({theme, toggleTheme}) => {
 
 	const handleThemeToggle = () => {
 		toggleTheme();
-		// Update localStorage with the new theme
 		localStorage.setItem('theme', theme === 'light' ? 'dark' : 'light');
 	};
 

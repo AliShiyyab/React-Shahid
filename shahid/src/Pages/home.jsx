@@ -1,10 +1,7 @@
 import React from 'react';
-import styled from "styled-components";
+import {HomeMainDevStyled} from "../components/styles";
 
-const HomeMainDevStyled = styled.div`
-	width: 100%;
-	text-align: center;
-`;
+
 
 const Home = () => {
 	return (
