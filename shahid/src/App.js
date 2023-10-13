@@ -1,43 +1,37 @@
 import React from 'react';
-import {Provider} from 'react-redux';
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import Navbar from './components/Navbar';
+import ThemeProvider from './components/ThemeProvider';
+import Home from "./Pages/home";
+import {About} from "./Pages/about";
+import {Contact} from "./Pages/contact";
+import styled from "styled-components";
+import {ListOfUsers} from "./services/list-of-users";
+import {Blog} from "./Pages/blog";
 
-import Nav from './components/nav';
-import {Home} from './Pages/home';
-import {Contact} from './Pages/contact';
-import {About} from './Pages/about';
-import store from "./store/store";
-import {ThemeProvider} from "styled-components";
-
-const theme = {
-	light: {
-		backgroundColor: '#fff',
-		textColor: '#2D2D82',
-	},
-	dark: {
-		backgroundColor: '#000',
-		textColor: '#fff',
-	},
-};
+const CustomDiv = styled.div`
+	background-color: ${(props) => props.theme.navbarBackground};
+    color: ${(props) => props.theme.navbarText};
+`;
 
 function App() {
-	const currentTheme = store.getState().theme.theme;
+
+
 	return (
-		<Provider store={store}>
-			<ThemeProvider theme={theme[currentTheme]}>
-				<div>
-					<Router>
-						<Nav/>
-						<Routes>
-							<Route path="/" element={<Home/>}/>
-							<Route path="/contact" element={<Contact/>}/>
-							<Route path="/about" element={<About/>}/>
-						</Routes></Router>
-				</div>
+		<Router>
+			<ThemeProvider>
+				<CustomDiv>
+					<Navbar/>
+					<Routes>
+						<Route path="/" element={<Home/>}/>
+						<Route path="/about" element={<About/>}/>
+						<Route path="/contact" element={<Contact/>}/>
+						<Route path='/blogs' element={<Blog />} />
+					</Routes>
+				</CustomDiv>
 			</ThemeProvider>
-		</Provider>
+		</Router>
 	);
 }
 
 export default App;
-
